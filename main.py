@@ -1,5 +1,5 @@
 
-from helper import save_2_file, parse_args
+from utils import save_2_file, parse_args
 from randomer import RandomUniqueNumberGenerator
 
 if __name__ == '__main__':

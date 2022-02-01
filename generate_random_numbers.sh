@@ -9,8 +9,24 @@ random() {
   let "RAND=$RAND%($range+1)"
 }
 
-n=10
-while [ $((n -= 1)) -ge "0" ]; do
+NAME=()
+i=0
+len=${#NAME[@]}
+PREVIOUS_NUMBER=-1
+
+while [ $len != 10 ]
+do
   random 50
-  echo "$RAND"
+  if [ $PREVIOUS_NUMBER != $RAND ]
+  then
+    NAME[$i]=$RAND
+    PREVIOUS_NUMBER=$RAND
+    let i+=1
+    let len+=1
+  fi
+done
+
+for n in "${NAME[@]}"
+do
+  echo $n
 done

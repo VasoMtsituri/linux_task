@@ -9,3 +9,4 @@
 **/*.pyc
 **/*.json
 **/*.txt
+/.idea
