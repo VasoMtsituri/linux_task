@@ -1,7 +1,6 @@
 #!/bin/bash
-# TODO: Need to know flags and their meanings
-# bash script, which generates 10 random numbers within range (1,50)
 
+# function used to generate random number in range (0, n) inclusively
 random() {
   local range=${1:-1}
 
@@ -9,12 +8,15 @@ random() {
   let "RAND=$RAND%($range+1)"
 }
 
+# Declare some variables we will use then properly
 NAME=()
 i=0
 len=${#NAME[@]}
 PREVIOUS_NUMBER=-1
 
-while [ $len != 10 ]
+# generate n unique random numbers given by random function; $1 is parsed argument denoting number of random number
+# we want to generate
+while [ $len != $1 ]
 do
   random 50
   if [ $PREVIOUS_NUMBER != $RAND ]
@@ -26,7 +28,20 @@ do
   fi
 done
 
-for n in "${NAME[@]}"
+#Checking mode in order to run program flow properly
+if [ $2 == 1 ]
+then
+  for n in "${NAME[@]}"
 do
   echo $n
 done
+elif [ $2 == 2 ]
+then
+   for n in "${NAME[@]}"
+do
+  echo $n >> numbers.txt
+done
+  echo date '+%Y/%m/%d %H:%M:%S' >> numbers.txt
+else
+  echo "mode isn't properly set"
+fi
