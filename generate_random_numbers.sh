@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Take commandline arguments as flags and declare properly
+while getopts n:m: flag
+do
+    case "${flag}" in
+        n) n_numbers=${OPTARG};;
+        m) mode=${OPTARG};;
+    esac
+done
+
 # function used to generate random number in range (0, n) inclusively
 random() {
   local range=${1:-1}
@@ -16,7 +25,7 @@ PREVIOUS_NUMBER=-1
 
 # generate n unique random numbers given by random function; $1 is parsed argument denoting number of random number
 # we want to generate
-while [ $len != $1 ]
+while [ "$len" != "$n_numbers" ]
 do
   random 50
   if [ $PREVIOUS_NUMBER != $RAND ]
@@ -29,19 +38,19 @@ do
 done
 
 #Checking mode in order to run program flow properly
-if [ $2 == 1 ]
+if [ "$mode" == 1 ]
 then
   for n in "${NAME[@]}"
 do
   echo $n
 done
-elif [ $2 == 2 ]
+elif [ "$mode" == 2 ]
 then
    for n in "${NAME[@]}"
 do
   echo $n >> numbers.txt
 done
-  echo date '+%Y/%m/%d %H:%M:%S' >> numbers.txt
+  date '+%Y/%m/%d %H:%M:%S' >> numbers.txt
 else
   echo "mode isn't properly set"
 fi

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1690a01b-0295-4f57-aef8-6347e5b9d0b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate_random_numbers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/generate_random_numbers.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager" selected="Shell Script.generate_random_numbers.sh">
@@ -95,7 +95,8 @@
       <option name="presentableId" value="Default" />
       <updated>1643648244562</updated>
       <workItem from="1643648250334" duration="5632000" />
-      <workItem from="1643692226634" duration="10515000" />
+      <workItem from="1643692226634" duration="12504000" />
+      <workItem from="1643784069996" duration="612000" />
     </task>
     <servers />
   </component>
