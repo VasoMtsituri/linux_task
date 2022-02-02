@@ -18,20 +18,30 @@ random() {
 }
 
 # Declare some variables we will use then properly
-NAME=()
+NUMBERS=()
 i=0
-len=${#NAME[@]}
-PREVIOUS_NUMBER=-1
+len=${#NUMBERS[@]}
 
 # generate n unique random numbers given by random function; $1 is parsed argument denoting number of random number
 # we want to generate
 while [ "$len" != "$n_numbers" ]
 do
   random 50
-  if [ $PREVIOUS_NUMBER != $RAND ]
+
+  already_have=0
+
+  for num in ${NUMBERS[*]}
+  do
+    if [ "$num" == "$RAND" ]
+    then
+      already_have=1
+    fi
+
+  done
+
+  if [ $already_have != 1 ]
   then
-    NAME[$i]=$RAND
-    PREVIOUS_NUMBER=$RAND
+    NUMBERS[$i]=$RAND
     let i+=1
     let len+=1
   fi
@@ -40,13 +50,13 @@ done
 #Checking mode in order to run program flow properly
 if [ "$mode" == 1 ]
 then
-  for n in "${NAME[@]}"
+  for n in "${NUMBERS[@]}"
 do
   echo $n
 done
 elif [ "$mode" == 2 ]
 then
-   for n in "${NAME[@]}"
+   for n in "${NUMBERS[@]}"
 do
   echo $n >> numbers.txt
 done
